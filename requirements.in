@@ -1,0 +1,5 @@
+scrapy
+Pillow
+azure-storage-blob
+azure-mgmt-resource
+azure-common

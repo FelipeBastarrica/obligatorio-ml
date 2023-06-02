@@ -55,14 +55,17 @@ class ItemLimit:
 
 class AzureImagesPipeline(ImagesPipeline):
     def image_downloaded(self, response, request, info, *, item):#item=None antes, se saca asi se trae el item
-
+        #print("nueva propiedad")
+        #print("Tipo: ",item["property_type"])
+        #print("Cuartos: ",item["property_rooms"])
         # Parseo de ID de la propiedad y el tipo
         item_id = item["id"].strip()
         item_propertytype = item["property_type"].strip()
-        newpath = "_"+item_id+"_"+item_propertytype
+        item_propertyrooms = item["property_rooms"].strip()
+        newpath = "_"+item_id+"_"+item_propertytype+"_"+item_propertyrooms
     
         checksum = None
-        for path, image, buf in self.get_images(response, request, info, item=item):
+        for path, _, buf in self.get_images(response, request, info, item=item):
             if checksum is None:
                 buf.seek(0)
                 checksum = md5sum(buf)

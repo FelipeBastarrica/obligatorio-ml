@@ -61,10 +61,18 @@ class GallitoSpider(CrawlSpider):
             "casa": "HOUSE",
             "apartamento": "APARTMENT",
         }
+        possible_rooms = {
+            "1 dormitorio": "1D",
+            "2 dormitorios": "2D",
+            "3 dormitorios": "3D",
+            "4 dormitorios": "4D",
+            "más de 4 dormitorios": "+4D",
+        }
 
         # every property has this fixed list of details on gallito
         fixed_details = extract_with_css("div.iconoDatos + p::text")
         property_type = possible_types[fixed_details[0].lower()]  # TODO: SU CÓDIGO AQUÍ
+        property_rooms = possible_rooms[fixed_details[3].lower()]  # TODO: SU CÓDIGO AQUÍ
 
         property = {
             "id": property_id,
@@ -73,6 +81,7 @@ class GallitoSpider(CrawlSpider):
             "url": requote_uri(response.request.url),
             "link": requote_uri(response.request.url),
             "property_type": property_type,
+            "property_rooms": property_rooms,
         }
         yield PropertyItem(**property)
 

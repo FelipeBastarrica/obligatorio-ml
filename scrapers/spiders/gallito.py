@@ -23,11 +23,11 @@ class GallitoSpider(CrawlSpider):
         },
         "max_items_per_label": 15,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 30,
+        "CLOSESPIDER_ITEMCOUNT": 300,
     }
     start_urls = [
-        "https://www.gallito.com.uy/inmuebles/casas",  # !cant=80
-        "https://www.gallito.com.uy/inmuebles/apartamentos",  # !cant=80
+        "https://www.gallito.com.uy/inmuebles/casas!cant=80",  # !cant=80
+        "https://www.gallito.com.uy/inmuebles/apartamentos!cant=80",  # !cant=80
     ]
 
     rules = (

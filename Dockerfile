@@ -4,4 +4,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-CMD scrapy crawl gallito -s LOG_FILE=./scrapy_gallito.log
+CMD scrapy crawl gallito 

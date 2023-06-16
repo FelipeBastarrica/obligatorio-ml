@@ -62,7 +62,8 @@ class AzureImagesPipeline(ImagesPipeline):
         item_id = item["id"].strip()
         item_propertytype = item["property_type"].strip()
         item_propertyrooms = item["property_rooms"].strip()
-        newpath = "_"+item_id+"_"+item_propertytype+"_"+item_propertyrooms
+        item_squaremeters = item["square_meters"].strip()
+        newpath = "_"+item_id+"_"+item_propertytype+"_"+item_propertyrooms+"_"+item_squaremeters
     
         checksum = None
         for path, _, buf in self.get_images(response, request, info, item=item):

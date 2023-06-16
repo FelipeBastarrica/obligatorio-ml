@@ -10,4 +10,5 @@ class PropertyItem(scrapy.Item):
     link = scrapy.Field()
     property_type = scrapy.Field()
     property_rooms = scrapy.Field()
+    square_meters = scrapy.Field()
 

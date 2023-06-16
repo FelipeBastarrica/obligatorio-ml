@@ -23,7 +23,7 @@ class GallitoSpider(CrawlSpider):
         },
         "max_items_per_label": 15,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 300,
+        "CLOSESPIDER_ITEMCOUNT": 10,
     }
     start_urls = [
         "https://www.gallito.com.uy/inmuebles/casas!cant=80",  # !cant=80
@@ -62,6 +62,7 @@ class GallitoSpider(CrawlSpider):
             "apartamento": "APARTMENT",
         }
         possible_rooms = {
+            "monoambiente": "0D",
             "1 dormitorio": "1D",
             "2 dormitorios": "2D",
             "3 dormitorios": "3D",
@@ -73,6 +74,7 @@ class GallitoSpider(CrawlSpider):
         fixed_details = extract_with_css("div.iconoDatos + p::text")
         property_type = possible_types[fixed_details[0].lower()]  # TODO: SU CÓDIGO AQUÍ
         property_rooms = possible_rooms[fixed_details[3].lower()]  # TODO: SU CÓDIGO AQUÍ
+        square_meters = fixed_details[5].lower().replace(" ","") # TODO: SU CÓDIGO AQUÍ
 
         property = {
             "id": property_id,
@@ -82,6 +84,7 @@ class GallitoSpider(CrawlSpider):
             "link": requote_uri(response.request.url),
             "property_type": property_type,
             "property_rooms": property_rooms,
+            "square_meters": square_meters
         }
         yield PropertyItem(**property)
 

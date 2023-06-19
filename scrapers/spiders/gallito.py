@@ -23,7 +23,7 @@ class GallitoSpider(CrawlSpider):
         },
         "max_items_per_label": 15,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 10,
+        "CLOSESPIDER_ITEMCOUNT": 300,
     }
     start_urls = [
         "https://www.gallito.com.uy/inmuebles/casas!cant=80",  # !cant=80

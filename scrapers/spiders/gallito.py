@@ -18,7 +18,6 @@ class GallitoSpider(CrawlSpider):
             "(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         ),
         "FEEDS": {
-            # SU CÓDIGO AQUÍ
             "properties_gallito.jl": {"format": "jsonlines"}
         },
         "max_items_per_label": 15,
@@ -72,9 +71,9 @@ class GallitoSpider(CrawlSpider):
 
         # every property has this fixed list of details on gallito
         fixed_details = extract_with_css("div.iconoDatos + p::text")
-        property_type = possible_types[fixed_details[0].lower()]  # TODO: SU CÓDIGO AQUÍ
-        property_rooms = possible_rooms[fixed_details[3].lower()]  # TODO: SU CÓDIGO AQUÍ
-        square_meters = fixed_details[5].lower().replace(" ","") # TODO: SU CÓDIGO AQUÍ
+        property_type = possible_types[fixed_details[0].lower()] 
+        property_rooms = possible_rooms[fixed_details[3].lower()]  
+        square_meters = fixed_details[5].lower().replace(" ","") 
 
         property = {
             "id": property_id,

@@ -1,6 +1,6 @@
 import scrapy
 
-
+# Property Items defined
 class PropertyItem(scrapy.Item):
     id = scrapy.Field()
     image_urls = scrapy.Field()

@@ -62,10 +62,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+# Item pipelines to take into account for each image
 ITEM_PIPELINES = {
-    # SU CÓDIGO AQUÍ
-    #"scrapers.pipelines.PricePipeline": 300,
-    #"scrapers.pipelines.JsonWriterPipeline": 800,
     "scrapers.pipelines.DuplicatesPipeline": 1,
     "scrapers.pipelines.AzureImagesPipeline": 2,
 

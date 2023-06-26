@@ -1,5 +1,7 @@
 # Obligatorio Machine Learning en Producción
 
+Felipe Bastarrica (158687), Aldo Gioda (285961), Esteban Maestro (150882)
+
 Este repositorio contiene el Scrapy que corre la Spider sobre la página de inmuebles para casas y apartamentos del Gallito. Para su ejecución, se puede ejecutar localmente con "scrapy crawl gallito", o hacer un build al docker y luego ejecutarlo con los siguientes comandos:
 
 * docker build -t gallito:latest .  
@@ -11,5 +13,5 @@ Las imágenes son subidas a un container en Azure en un formato preestablecido d
 
 * az storage blob delete-batch --account-name <CONTAINER> --source container-m
 
-El documento "model_obligatorio.ipynb" en la Notebook donde se hace el tratamiento de datos, visualización de los mismos, la creación del modelo, la utilización de diferentes técnicas y registros del entrenamiento mediante herramientas. 
+El documento "model_obligatorio.ipynb" es la Notebook donde se hace el tratamiento de datos, visualización de los mismos, la creación del modelo, la utilización de variadas técnicas y registros del entrenamiento mediante diferentes herramientas. 
 

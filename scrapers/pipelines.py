@@ -10,7 +10,7 @@ from scrapy.utils.misc import md5sum
 from scrapers.azure_helpers import upload_blob
 from scrapers.items import PropertyItem
 
-
+# Not process duplicates
 class DuplicatesPipeline:
     def __init__(self):
                 self.ids_seen = set()
@@ -23,7 +23,7 @@ class DuplicatesPipeline:
             self.ids_seen.add(adapter["id"])
             return item
 
-
+# Not usable
 class ItemLimit:
     def __init__(self, max_items_per_label: int, label_field: str):
         self.label_counts = defaultdict(int)
@@ -52,13 +52,9 @@ class ItemLimit:
             )
         return cls(max_items_per_label, label_field)
 
-
+# Create string for image name and upload it to Blob in Azure
 class AzureImagesPipeline(ImagesPipeline):
-    def image_downloaded(self, response, request, info, *, item):#item=None antes, se saca asi se trae el item
-        #print("nueva propiedad")
-        #print("Tipo: ",item["property_type"])
-        #print("Cuartos: ",item["property_rooms"])
-        # Parseo de ID de la propiedad y el tipo
+    def image_downloaded(self, response, request, info, *, item):
         item_id = item["id"].strip()
         item_propertytype = item["property_type"].strip()
         item_propertyrooms = item["property_rooms"].strip()

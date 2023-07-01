@@ -9,7 +9,7 @@ Este repositorio contiene el Scrapy que corre la Spider sobre la página de inmu
 
 En el archivo "scrapy_logs.log" se registran todos los logs asociados a la Spider y la subida de datos a Azure.
 
-Las imágenes son subidas a un container en Azure en un formato preestablecido donde se guardan con un ID único por imagen, un ID único por propiedad, qué tipo de propiedad es, casa o apartamento, el número de dormitorios y los metros cuadrados.Para confirmar que el container está vacío para poder tener solamente dentro los datos que se quieren, se ejecuta el siguiente comando para borrar todo contenido  dentro colocando el ID del container correspondiente: 
+Las imágenes son subidas a un container en Azure en un formato preestablecido donde se guardan con un ID único por imagen, un ID único por propiedad, qué tipo de propiedad es, casa o apartamento, el número de dormitorios y los metros cuadrados. Con el fin de confirmar que el container está vacío para poder tener solamente dentro los datos que se quieren, se ejecuta el siguiente comando para borrar todo contenido dentro del mismo, colocando el ID del container correspondiente: 
 
 * az storage blob delete-batch --account-name <CONTAINER> --source container-m
 

@@ -4,7 +4,6 @@ from azure.storage.blob import BlobServiceClient
 
 CONNECT_STR = os.getenv("<STRING_KEY>")
 CONTAINER_NAME = os.environ.get("<CONTAINER_NAME>")
-#https://cs210032001db9f06eb.blob.core.windows.net
 
 blob_service_client = BlobServiceClient.from_connection_string("<STRING_KEY>")
 container_client = blob_service_client.get_container_client(container="<CONTAINER_NAME>")

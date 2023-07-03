@@ -2,12 +2,12 @@ import os
 
 from azure.storage.blob import BlobServiceClient
 
-CONNECT_STR = os.getenv("DefaultEndpointsProtocol=https;AccountName=cs210032001db9f06eb;AccountKey=Q7i41vK6zB2p/aKXulAdSROpoIou5uYj+EulJri7p9VI9VH4Us+Rlj+9fo5GC78TxSlPNQEWaDVY+AStDBpAfA==;EndpointSuffix=core.windows.net")
-CONTAINER_NAME = os.environ.get("cs210032001db9f06eb")
+CONNECT_STR = os.getenv("<STRING_KEY>")
+CONTAINER_NAME = os.environ.get("<CONTAINER_NAME>")
 #https://cs210032001db9f06eb.blob.core.windows.net
 
-blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=cs210032001db9f06eb;AccountKey=Q7i41vK6zB2p/aKXulAdSROpoIou5uYj+EulJri7p9VI9VH4Us+Rlj+9fo5GC78TxSlPNQEWaDVY+AStDBpAfA==;EndpointSuffix=core.windows.net")
-container_client = blob_service_client.get_container_client(container="container-ml")
+blob_service_client = BlobServiceClient.from_connection_string("<STRING_KEY>")
+container_client = blob_service_client.get_container_client(container="<CONTAINER_NAME>")
 
 # Function that uploads the blob using container credentials
 def upload_blob(path, buf):
